@@ -1,15 +1,48 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android">
-    <group android:checkableBehavior="single">
-        <item android:title="Nav Menu">
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
 
-            <menu>
-                <item android:id="@+id/test"
-                    android:title="test"
-                    android:icon="@mipmap/ic_launcher_round"/>
-            </menu>
+    <item android:title=">General">
+        <menu>
+            <item
+                android:id="@+id/Home"
 
-        </item>
-    </group>
+                android:title="Home" />
+            <item
+                android:id="@+id/wiki"
+                android:title="Wikipedia"
+                />
+            <item
+                android:id="@+id/wikibook"
+                android:title="WikiBooks"
+                />
+            <item
+                android:id="@+id/youtube"
+                android:title="Youtube"
+                />
 
+        </menu>
+    </item>
+
+
+    <item android:title="Communication">
+        <menu>
+            <item
+                android:id="@+id/share"
+                android:title="Share" />
+            <item
+                android:id="@+id/about"
+                android:title="About"
+                />
+        </menu>
+    </item>
+
+    <item android:title="Thanks_Visit_Again">
+        <menu>
+            <item
+                android:id="@+id/exit"
+                android:title="Exit" />
+
+        </menu>
+    </item>
 </menu>

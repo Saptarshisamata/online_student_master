@@ -1,11 +1,14 @@
 package com.saptarshisamanta.myapplication.subject;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 import androidx.recyclerview.widget.GridLayoutManager;
 
 import android.os.Bundle;
+import android.view.MenuItem;
 
+import com.google.android.material.navigation.NavigationView;
 import com.saptarshisamanta.myapplication.R;
 import com.saptarshisamanta.myapplication.data.Details;
 import com.saptarshisamanta.myapplication.data.DetailsAdapter;
@@ -13,7 +16,7 @@ import com.saptarshisamanta.myapplication.databinding.ActivitySubjectBinding;
 
 import java.util.ArrayList;
 
-public class SubjectActivity extends AppCompatActivity {
+public class SubjectActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
     ActivitySubjectBinding activitySubjectBinding;
     private DetailsAdapter detailsAdapter;
     private ArrayList<Details> list;
@@ -24,15 +27,7 @@ public class SubjectActivity extends AppCompatActivity {
         list = new ArrayList<>();
         list.add(new Details("testcfjghckhgchfkckkfcxfjc",R.drawable.startupimage));
         list.add(new Details("test",R.drawable.startupimage));
-        list.add(new Details("test",R.drawable.startupimage));
-        list.add(new Details("test",R.drawable.startupimage));
-        list.add(new Details("test",R.drawable.startupimage));
-        list.add(new Details("test",R.drawable.startupimage));
-        list.add(new Details("test",R.drawable.startupimage));
-        list.add(new Details("test",R.drawable.startupimage));
-        list.add(new Details("test",R.drawable.startupimage));
-        list.add(new Details("test",R.drawable.startupimage));
-        list.add(new Details("test",R.drawable.startupimage));
+
 
         detailsAdapter = new DetailsAdapter(this,list);
         activitySubjectBinding.subjectList.setLayoutManager(new GridLayoutManager(this,2));
@@ -45,5 +40,10 @@ public class SubjectActivity extends AppCompatActivity {
             }
         });
 
+    }
+
+    @Override
+    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+        return false;
     }
 }
