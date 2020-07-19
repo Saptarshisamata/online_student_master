@@ -17,6 +17,7 @@ import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
 import com.google.android.material.navigation.NavigationView;
+import com.saptarshisamanta.myapplication.BuildConfig;
 import com.saptarshisamanta.myapplication.R;
 import com.saptarshisamanta.myapplication.data.Links;
 import com.saptarshisamanta.myapplication.data.LinksAdapter;
@@ -92,7 +93,15 @@ public class LinksActivity extends AppCompatActivity implements NavigationView.O
             startActivity(viewIntent3);
         }
         else if (item.getItemId() == R.id.share) {
-            Toast.makeText(this, "UNDER PROCESS thanks for visiting", Toast.LENGTH_SHORT).show();
+            //Toast.makeText(this, "UNDER PROCESS thanks for visiting", Toast.LENGTH_SHORT).show();
+            Intent shareIntent = new Intent(Intent.ACTION_SEND);
+            shareIntent.setType("text/plain");
+            shareIntent.putExtra(Intent.EXTRA_SUBJECT, "Application name");
+            String shareMessage = "\nUse this simple app\n\n";
+            shareMessage = shareMessage + "https://play.google.com/store/apps/details?id=" + BuildConfig.APPLICATION_ID + "\n\n";
+            shareIntent.putExtra(Intent.EXTRA_TEXT, shareMessage);
+            startActivity(Intent.createChooser(shareIntent, "choose one"));
+
         }
         else if (item.getItemId() == R.id.about) {
             Toast.makeText(this, "UNDER PROCESS THANKS FOR VISITING", Toast.LENGTH_SHORT).show();
