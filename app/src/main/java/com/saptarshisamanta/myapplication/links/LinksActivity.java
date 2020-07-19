@@ -1,7 +1,11 @@
 package com.saptarshisamanta.myapplication.links;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.webkit.WebSettings;
+import android.webkit.WebView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -26,6 +30,8 @@ public class LinksActivity extends AppCompatActivity implements NavigationView.O
     public LinksAdapter linksAdapter;
     private ArrayList<Links> linksList = new ArrayList<>();
 
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,6 +41,7 @@ public class LinksActivity extends AppCompatActivity implements NavigationView.O
 
         buildRecyclerView();
         buildNavigationDrawer();
+
     }
 
     public void buildRecyclerView() {
@@ -55,6 +62,7 @@ public class LinksActivity extends AppCompatActivity implements NavigationView.O
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, activityLinksBinding.drawer, activityLinksBinding.toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         activityLinksBinding.drawer.addDrawerListener(toggle);
         toggle.syncState();
+
     }
 
     @Override
@@ -63,7 +71,31 @@ public class LinksActivity extends AppCompatActivity implements NavigationView.O
             finish();
             System.exit(0);
         } else if (item.getItemId() == R.id.wiki) {
-            Toast.makeText(this, "done", Toast.LENGTH_SHORT).show();
+             //Toast.makeText(this, "done", Toast.LENGTH_SHORT).show();
+            Intent viewIntent =
+                    new Intent("android.intent.action.VIEW",
+                            Uri.parse("https://www.wikipedia.org/"));
+            startActivity(viewIntent);
+        }
+        else if (item.getItemId() == R.id.youtube) {
+            //Toast.makeText(this, "done", Toast.LENGTH_SHORT).show();
+            Intent viewIntent2 =
+                    new Intent("android.intent.action.VIEW",
+                            Uri.parse("https://www.youtube.com/"));
+            startActivity(viewIntent2);
+        }
+        else if (item.getItemId() == R.id.wikibook) {
+            //Toast.makeText(this, "done", Toast.LENGTH_SHORT).show();
+            Intent viewIntent3 =
+                    new Intent("android.intent.action.VIEW",
+                            Uri.parse("https://www.wikibooks.org/"));
+            startActivity(viewIntent3);
+        }
+        else if (item.getItemId() == R.id.share) {
+            Toast.makeText(this, "UNDER PROCESS thanks for visiting", Toast.LENGTH_SHORT).show();
+        }
+        else if (item.getItemId() == R.id.about) {
+            Toast.makeText(this, "UNDER PROCESS THANKS FOR VISITING", Toast.LENGTH_SHORT).show();
         }
         activityLinksBinding.drawer.closeDrawer(GravityCompat.START);
         return true;
